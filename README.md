@@ -1,3 +1,4 @@
+
 Speech Analysis Web Application
 
 Overview
@@ -81,4 +82,6 @@ This project is open-source and available under the MIT License.
 
 Author
 Shailesh MS
+
+![image](https://github.com/user-attachments/assets/07becd65-c7aa-4f87-8bf7-d918e58847c1)
 
