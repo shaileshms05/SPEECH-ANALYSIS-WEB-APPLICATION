@@ -1,61 +1,54 @@
-
 Speech Analysis Web Application
 
-Overview
+This project is a Flask-based API that processes audio files to extract speech transcription, emotion analysis, and sentiment analysis using Wav2Vec2, CNN-based emotion detection, and TextBlob for sentiment analysis.
 
-This Flask-based web application provides real-time speech analysis by integrating AI models for:
+🚀 Features
 
-Speech-to-Text Conversion using Wav2Vec2
+🎤 Speech-to-Text Transcription using Facebook's Wav2Vec2 model.
 
-Emotion Detection using RandomForest Classifier
+🎭 Emotion Detection using a pre-trained CNN model.
 
-Sentiment Analysis using TextBlob
+😃 Sentiment Analysis to determine polarity and subjectivity.
 
-The app allows users to upload audio files and receive transcriptions, detected emotions, and sentiment insights in JSON format.
+📡 REST API to handle audio file uploads and return analyzed results.
 
-Features
+🛠️ Installation
 
-✅ Speech-to-Text: Converts audio to text using Wav2Vec2 (Hugging Face Transformers).✅ Emotion Recognition: Detects emotions from speech using extracted MFCC features and a RandomForest classifier.✅ Sentiment Analysis: Evaluates the polarity and subjectivity of the transcribed text using TextBlob.✅ RESTful API: Allows users to send audio files via HTTP requests and receive structured JSON responses.✅ Scalability: Designed for deployment with Flask, making it easy to extend and integrate with other services.
+Clone the repository:
 
-Tech Stack
+git clone https://github.com/your-repo/speech-analysis-flask.git
+cd speech-analysis-flask
 
-Backend: Flask (Python)
+Create a virtual environment and activate it:
 
-Speech-to-Text: Wav2Vec2 (Hugging Face Transformers, PyTorch, Torchaudio)
-
-Emotion Recognition: Librosa (Feature Extraction), Scikit-learn (RandomForest Classifier)
-
-Sentiment Analysis: TextBlob
-
-API Integration: Flask RESTful API
-
-Installation & Setup
-
-1. Clone the Repository
-
-git clone https://github.com/your-username/speech-analysis-webapp.git
-cd speech-analysis-webapp
-
-2. Create a Virtual Environment (Optional but Recommended)
-
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-3. Install Dependencies
+Install dependencies:
 
 pip install -r requirements.txt
 
-4. Run the Application
+Download the pre-trained models:
+
+Wav2Vec2 (Automatically downloads on first use)
+
+Ensure emotion_cnn.pth (trained model) is available in the project directory.
+
+🚀 Running the Application
 
 python app.py
 
-The application will be available at http://127.0.0.1:5000/
+The API will be accessible at: http://127.0.0.1:5000/
 
-API Endpoints
+🎙️ Usage
 
-1. Analyze Speech (POST /analyze_speech)
+1️⃣ Web Interface
 
-Uploads an audio file for transcription, emotion detection, and sentiment analysis.
+Open http://127.0.0.1:5000/ in your browser and upload an audio file.
+
+2️⃣ API Endpoint
+
+POST /analyze_speech
 
 Request:
 
@@ -64,24 +57,45 @@ curl -X POST -F "audio=@sample.wav" http://127.0.0.1:5000/analyze_speech
 Response:
 
 {
-    "transcription": "Hello, how are you?",
-    "emotion": "happy",
-    "feedback": {
-        "polarity": 0.5,
-        "subjectivity": 0.6
-    }
+  "transcription": "Hello, how are you?",
+  "emotion": "Happy",
+  "sentiment": {
+    "polarity": 0.5,
+    "subjectivity": 0.6
+  }
 }
 
-Future Enhancements
+📁 Project Structure
 
-🚀 Real-time Speech Analysis: Integrate microphone-based real-time processing.🚀 Deep Learning for Emotion Detection: Replace RandomForest with LSTM/CNN-based models.🚀 Cloud Deployment: Deploy as a microservice using Docker & AWS.
+📂 speech-analysis-flask/
+├── 📂 uploads/         # Directory to store uploaded files
+├── 📜 app.py          # Main Flask application
+├── 📜 emotion_cnn.pth # Pre-trained CNN model for emotion detection
+├── 📜 requirements.txt # Required dependencies
+├── 📜 README.md       # Project documentation
 
-License
+🏗️ Technologies Used
 
-This project is open-source and available under the MIT License.
+Python (Flask, Torch, Librosa, TextBlob)
 
-Author
-Shailesh MS
+Deep Learning Models (Wav2Vec2, CNN for emotion recognition)
 
-![image](https://github.com/user-attachments/assets/07becd65-c7aa-4f87-8bf7-d918e58847c1)
+API Development (Flask, JSON responses)
 
+📌 Future Enhancements
+
+🎙️ Improve transcription accuracy with fine-tuned models.
+
+📊 Implement a frontend dashboard for visualization.
+
+🔊 Support more languages for transcription.
+
+🤝 Contributing
+
+Feel free to contribute by creating pull requests or reporting issues.
+
+📜 License
+
+This project is licensed under the MIT License.
+
+🚀 Happy Coding! 🎧
